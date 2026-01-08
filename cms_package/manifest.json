@@ -2,7 +2,7 @@
   "pages": [
     {
       "path": "/",
-      "file": "pages/index.html",
+      "file": "templates/home.html",
       "title": "Home",
       "editable": true
     },
