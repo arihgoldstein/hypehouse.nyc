@@ -33,9 +33,9 @@
 
   <!-- Event Detail -->
   <article style="padding: 8rem 1rem 5rem;">
-    {{#if event}}
+    {{#if image}}
     <div style="aspect-ratio: 16/9; max-height: 60vh; overflow: hidden; margin-bottom: 3rem;">
-      <img src="{{event}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover;">
+      <img src="{{image}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
     {{/if}}
     
@@ -63,8 +63,8 @@
       {{#unless (eq slug ../slug)}}
       <a href="{{url}}" class="archive-card">
         <div class="archive-image">
-          {{#if event}}
-          <img src="{{event}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
+          {{#if image}}
+          <img src="{{image}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
           {{else}}
           <span class="archive-placeholder">[Event Photo]</span>
           {{/if}}
