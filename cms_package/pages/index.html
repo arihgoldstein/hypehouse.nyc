@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hye House | Armenian Creative Community</title>
+  <meta name="description" content="Where culture meets the dance floor. An Armenian-led creative community and event series.">
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">Hye House</a>
+      <nav class="nav">
+        <a href="/events">Events</a>
+        <a href="/merch">Merch</a>
+        <a href="/story">Story</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <button class="menu-toggle">Menu</button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="/events">Events</a>
+    <a href="/merch">Merch</a>
+    <a href="/story">Story</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-title" data-edit-key="hero-title">
+      Culture Meets <br><span>The Dance Floor</span>
+    </h1>
+    <div class="hero-content">
+      <p class="hero-description" data-edit-key="hero-description">
+        Hye House is an Armenian-led creative community and event series bridging heritage with the underground.
+      </p>
+      <div class="hero-cta">
+        <a href="/events" class="btn btn-primary">Upcoming Events</a>
+        <a href="/merch" class="btn btn-outline">Shop Merch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="events-section">
+    <div class="section-header">
+      <h2 class="section-title" data-edit-key="events-section-title">Upcoming Events</h2>
+      <a href="/events" class="section-link md-hidden">View All</a>
+    </div>
+    
+    <div class="events-grid">
+      {{#each blogs featured=true limit=2 sort="publishedAt" order="asc"}}
+      <article class="event-card">
+        <div class="event-meta">
+          <span class="event-status">Upcoming</span>
+          <span class="event-date">{{publishedAt}}</span>
+        </div>
+        <div class="event-info">
+          <h3 class="event-title">{{name}}</h3>
+          <p class="event-location">{{postSummary}}</p>
+        </div>
+        <div class="event-cta">
+          <a href="{{url}}" class="btn btn-primary">Get Tickets</a>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+    
+    <div class="md-show" style="margin-top: 2rem; display: none;">
+      <a href="/events" class="section-link" style="display: block; text-align: center; padding: 1rem; border: 1px solid rgba(255,255,255,0.2);">View All Events</a>
+    </div>
+  </section>
+
+  <!-- Statement -->
+  <section class="statement">
+    <p class="statement-text" data-edit-key="home-statement">
+      We do not view ourselves as just party promoters. <br>
+      <span>We are a living platform for experimentation, connecting the diaspora through sound, design, and shared space.</span>
+    </p>
+  </section>
+
+  <!-- Merch Section -->
+  <section class="merch-section">
+    <div class="section-header">
+      <h2 class="section-title" data-edit-key="merch-section-title">Shop Merch</h2>
+      <a href="/merch" class="section-link md-hidden">View All</a>
+    </div>
+    
+    <div class="merch-grid">
+      {{#each team limit=3 sort="order" order="asc"}}
+      <a href="#" class="merch-card">
+        <div class="merch-image">
+          <div class="merch-image-inner"></div>
+          <span class="merch-placeholder">{{name}} Image</span>
+          {{#if email}}
+          <span class="merch-badge">{{email}}</span>
+          {{/if}}
+        </div>
+        <div class="merch-details">
+          <h3 class="merch-name">{{name}}</h3>
+          <span class="merch-price">{{role}}</span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+    
+    <div class="md-show" style="margin-top: 2rem; display: none;">
+      <a href="/merch" class="section-link" style="display: block; text-align: center; padding: 1rem; border: 1px solid rgba(255,255,255,0.2);">View Shop</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
+        <a href="mailto:hello@hyehouse.nyc">Email</a>
+      </div>
+      <div class="footer-col">
+        <h3>Navigate</h3>
+        <a href="/events">Upcoming Events</a>
+        <a href="/merch">Shop Merch</a>
+        <a href="/story">Our Story</a>
+      </div>
+      <div class="footer-col" style="grid-column: span 1;">
+        <h3>Join the List</h3>
+        <p data-edit-key="footer-newsletter-text">Be the first to know about secret locations, ticket drops, and limited merch releases.</p>
+        <form class="footer-form" data-form-name="newsletter" data-success-message="Welcome to the list!">
+          <input type="email" name="email" placeholder="YOUR EMAIL" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hye House</span>
+      <span class="md-hidden">Brooklyn / Los Angeles / Yerevan</span>
+      <span data-edit-key="footer-credit">Site by Ari</span>
+    </div>
+  </footer>
+
+  <script src="/public/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "file": "pages/index.html",
+      "title": "Home",
+      "editable": true
+    },
+    {
+      "path": "/story",
+      "file": "pages/story.html",
+      "title": "Story",
+      "editable": true
+    },
+    {
+      "path": "/contact",
+      "file": "pages/contact.html",
+      "title": "Contact",
+      "editable": true
+    }
+  ],
+  "cmsTemplates": {
+    "blogIndex": "templates/events_index.html",
+    "blogIndexPath": "/events",
+    "blogPost": "templates/event_detail.html",
+    "blogPostPath": "/events",
+    "team": "templates/merch.html",
+    "teamPath": "/merch"
+  },
+  "defaultHeadHtml": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap\" rel=\"stylesheet\">"
+}

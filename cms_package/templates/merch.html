@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Hye House</title>
+  <meta name="description" content="Official Hye House merchandise. Apparel, accessories, and limited drops.">
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">Hye House</a>
+      <nav class="nav">
+        <a href="/events">Events</a>
+        <a href="/merch">Merch</a>
+        <a href="/story">Story</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <button class="menu-toggle">Menu</button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="/events">Events</a>
+    <a href="/merch">Merch</a>
+    <a href="/story">Story</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1 class="page-title">Shop</h1>
+  </div>
+
+  <!-- Merch Grid -->
+  <div class="merch-page-grid">
+    {{#each team sort="order" order="asc"}}
+    <a href="#" class="merch-page-card">
+      <div class="merch-page-image">
+        <div class="merch-page-image-inner">
+          {{#if photo}}
+          <img src="{{photo}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
+          {{/if}}
+        </div>
+        <span class="merch-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.2);font-weight:700;">{{name}} Image</span>
+        {{#if email}}
+        <span class="merch-badge" style="position:absolute;top:1rem;right:1rem;background:#fff;color:#000;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;padding:0.25rem 0.5rem;z-index:10;">{{email}}</span>
+        {{/if}}
+      </div>
+      <div class="merch-page-details">
+        <h3 class="merch-page-name">{{name}}</h3>
+        <span class="merch-page-price">{{role}}</span>
+      </div>
+    </a>
+    {{/each}}
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
+        <a href="mailto:hello@hyehouse.nyc">Email</a>
+      </div>
+      <div class="footer-col">
+        <h3>Navigate</h3>
+        <a href="/events">Upcoming Events</a>
+        <a href="/merch">Shop Merch</a>
+        <a href="/story">Our Story</a>
+      </div>
+      <div class="footer-col" style="grid-column: span 1;">
+        <h3>Join the List</h3>
+        <p>Be the first to know about secret locations, ticket drops, and limited merch releases.</p>
+        <form class="footer-form" data-form-name="newsletter" data-success-message="Welcome to the list!">
+          <input type="email" name="email" placeholder="YOUR EMAIL" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hye House</span>
+      <span class="md-hidden">Brooklyn / Los Angeles / Yerevan</span>
+      <span>Site by Ari</span>
+    </div>
+  </footer>
+
+  <script src="/public/js/main.js"></script>
+</body>
+</html>
