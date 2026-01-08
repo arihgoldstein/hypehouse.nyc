@@ -38,26 +38,29 @@
 
   <!-- Merch Grid -->
   <div class="merch-page-grid">
-    {{#each team sort="order" order="asc"}}
-    <a href="#" class="merch-page-card">
+    {{#each merch sort="publishedAt" order="desc"}}
+    <a href="{{url}}" class="merch-page-card">
       <div class="merch-page-image">
         <div class="merch-page-image-inner">
-          {{#if photo}}
-          <img src="{{photo}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
+          {{#if merch}}
+          <img src="{{merch}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
           {{/if}}
         </div>
-        <span class="merch-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.2);font-weight:700;">{{name}} Image</span>
-        {{#if email}}
-        <span class="merch-badge" style="position:absolute;top:1rem;right:1rem;background:#fff;color:#000;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;padding:0.25rem 0.5rem;z-index:10;">{{email}}</span>
-        {{/if}}
+        <span class="merch-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.2);font-weight:700;">{{name}}</span>
       </div>
       <div class="merch-page-details">
         <h3 class="merch-page-name">{{name}}</h3>
-        <span class="merch-page-price">{{role}}</span>
+        <span class="merch-page-price">${{price}}</span>
       </div>
     </a>
     {{/each}}
   </div>
+
+  {{#unless merch}}
+  <div style="padding: 5rem 2rem; text-align: center;">
+    <p style="color: #9C9C9C; text-transform: uppercase; letter-spacing: 0.1em;">No products yet. Check back soon!</p>
+  </div>
+  {{/unless}}
 
   <!-- Footer -->
   <footer class="footer">

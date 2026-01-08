@@ -36,50 +36,26 @@
     <h1 class="page-title">Events</h1>
   </div>
 
-  <!-- Upcoming Events -->
-  <section style="padding: 0 1rem;">
-    <h2 class="archive-title" style="position: sticky; top: 6rem; background: #000; z-index: 10;">Upcoming</h2>
-  </section>
-  
+  <!-- Events List -->
   <div class="events-list">
-    {{#each blogs featured=true sort="publishedAt" order="asc"}}
+    {{#each events sort="date" order="asc"}}
     <article class="event-row">
       <div class="event-row-content">
         <div class="event-row-meta">
-          <span class="date">{{publishedAt}}</span>
-          <span class="divider">|</span>
-          <span class="location">{{postSummary}}</span>
+          <span class="date">{{date}}</span>
         </div>
         <h3 class="event-row-title">{{name}}</h3>
       </div>
-      <a href="{{url}}" class="btn btn-primary">Get Tickets</a>
+      <a href="{{url}}" class="btn btn-primary">View Event</a>
     </article>
     {{/each}}
   </div>
 
-  <!-- Archive -->
-  <section class="archive-section">
-    <h2 class="archive-title">Archive</h2>
-    
-    <div class="archive-grid">
-      {{#each blogs featured=false sort="publishedAt" order="desc"}}
-      <a href="{{url}}" class="archive-card">
-        <div class="archive-image">
-          {{#if mainImage}}
-          <img src="{{mainImage}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-          {{else}}
-          <span class="archive-placeholder">[Archive Photo]</span>
-          {{/if}}
-        </div>
-        <h3 class="archive-name">{{name}}</h3>
-        <div class="archive-meta">
-          <span>{{publishedAt}}</span>
-          <span>{{postSummary}}</span>
-        </div>
-      </a>
-      {{/each}}
-    </div>
-  </section>
+  {{#unless events}}
+  <div style="padding: 5rem 2rem; text-align: center;">
+    <p style="color: #9C9C9C; text-transform: uppercase; letter-spacing: 0.1em;">No events yet. Check back soon!</p>
+  </div>
+  {{/unless}}
 
   <!-- Footer -->
   <footer class="footer">

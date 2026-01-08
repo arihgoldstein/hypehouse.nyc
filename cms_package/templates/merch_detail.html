@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{name}} | Hye House</title>
-  <meta name="description" content="{{name}} - Hye House event">
+  <title>{{name}} | Hye House Shop</title>
+  <meta name="description" content="{{name}} - Official Hye House merchandise">
   <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
@@ -31,47 +31,54 @@
     <a href="/contact">Contact</a>
   </div>
 
-  <!-- Event Detail -->
+  <!-- Product Detail -->
   <article style="padding: 8rem 1rem 5rem;">
-    {{#if event}}
-    <div style="aspect-ratio: 16/9; max-height: 60vh; overflow: hidden; margin-bottom: 3rem;">
-      <img src="{{event}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    {{/if}}
-    
-    <div style="max-width: 48rem;">
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-bottom: 2rem;">
-        <span style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">{{date}}</span>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto;">
+      
+      <!-- Product Image -->
+      <div style="aspect-ratio: 1; background: #111; position: relative; overflow: hidden;">
+        {{#if merch}}
+        <img src="{{merch}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover;">
+        {{else}}
+        <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.2);font-weight:700;">Product Image</span>
+        {{/if}}
       </div>
       
-      <h1 style="font-size: clamp(3rem, 8vw, 6rem); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.85; margin-bottom: 3rem;">{{name}}</h1>
-      
-      {{#if discription}}
-      <div style="font-size: 1.125rem; line-height: 1.8; color: #9C9C9C;">
-        {{{discription}}}
+      <!-- Product Info -->
+      <div>
+        <h1 style="font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 1rem;">{{name}}</h1>
+        
+        <p style="font-size: 1.5rem; font-family: monospace; color: #9C9C9C; margin-bottom: 2rem;">${{price}}</p>
+        
+        {{#if decription}}
+        <div style="font-size: 1.125rem; line-height: 1.8; color: #9C9C9C; margin-bottom: 3rem;">
+          {{{decription}}}
+        </div>
+        {{/if}}
+        
+        <a href="/contact" class="btn btn-primary" style="font-size: 1rem; padding: 1rem 2rem;">Inquire to Purchase</a>
       </div>
-      {{/if}}
     </div>
   </article>
 
-  <!-- More Events -->
+  <!-- More Products -->
   <section class="archive-section" style="border-top: 1px solid rgba(255,255,255,0.1);">
-    <h2 class="archive-title">More Events</h2>
+    <h2 class="archive-title">More Products</h2>
     
-    <div class="archive-grid">
-      {{#each events limit=3}}
+    <div class="merch-page-grid" style="padding: 0;">
+      {{#each merch limit=3}}
       {{#unless (eq slug ../slug)}}
-      <a href="{{url}}" class="archive-card">
-        <div class="archive-image">
-          {{#if event}}
-          <img src="{{event}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-          {{else}}
-          <span class="archive-placeholder">[Event Photo]</span>
-          {{/if}}
+      <a href="{{url}}" class="merch-page-card">
+        <div class="merch-page-image">
+          <div class="merch-page-image-inner">
+            {{#if merch}}
+            <img src="{{merch}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
+            {{/if}}
+          </div>
         </div>
-        <h3 class="archive-name">{{name}}</h3>
-        <div class="archive-meta">
-          <span>{{date}}</span>
+        <div class="merch-page-details">
+          <h3 class="merch-page-name">{{name}}</h3>
+          <span class="merch-page-price">${{price}}</span>
         </div>
       </a>
       {{/unless}}

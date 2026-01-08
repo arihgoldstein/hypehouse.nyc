@@ -20,12 +20,14 @@
     }
   ],
   "cmsTemplates": {
-    "blogIndex": "templates/events_index.html",
-    "blogIndexPath": "/events",
-    "blogPost": "templates/event_detail.html",
-    "blogPostPath": "/events",
-    "team": "templates/merch.html",
-    "teamPath": "/merch"
+    "eventsIndex": "templates/events_index.html",
+    "eventsIndexPath": "/events",
+    "eventsDetail": "templates/event_detail.html",
+    "eventsDetailPath": "/events",
+    "merchIndex": "templates/merch_index.html",
+    "merchIndexPath": "/merch",
+    "merchDetail": "templates/merch_detail.html",
+    "merchDetailPath": "/merch"
   },
   "defaultHeadHtml": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap\" rel=\"stylesheet\">"
 }
