@@ -36,23 +36,29 @@
     <h1 class="page-title">Events</h1>
   </div>
 
-  <!-- Events List -->
-  <div class="events-list">
-    {{#each events sort="date" order="asc"}}
-    <article class="event-row" style="position: relative; overflow: hidden;">
-      {{#if image}}
-      <div style="position: absolute; inset: 0; z-index: 0;">
-        <img src="{{image}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.2;">
-      </div>
-      {{/if}}
-      <div class="event-row-content" style="position: relative; z-index: 1;">
-        <div class="event-row-meta">
-          <span class="date">{{date}}</span>
+  <!-- Events Grid -->
+  <div style="padding: 0 1rem 5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem;">
+    {{#each events sort="date" order="desc"}}
+    <a href="{{url}}" style="display: block; text-decoration: none; color: inherit;">
+      <article style="background: #111; border: 1px solid rgba(255,255,255,0.1); transition: border-color 0.3s ease;">
+        <!-- Event Image -->
+        <div style="aspect-ratio: 16/10; background: #0a0a0a; position: relative; overflow: hidden;">
+          {{#if image}}
+          <img src="{{image}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+          {{else}}
+          <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.1); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem;">[Event Image]</div>
+          {{/if}}
         </div>
-        <h3 class="event-row-title">{{name}}</h3>
-      </div>
-      <a href="{{url}}" class="btn btn-primary" style="position: relative; z-index: 1;">View Event</a>
-    </article>
+        
+        <!-- Event Info -->
+        <div style="padding: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #9C9C9C;">{{date}}</span>
+          </div>
+          <h3 style="font-size: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; margin: 0;">{{name}}</h3>
+        </div>
+      </article>
+    </a>
     {{/each}}
   </div>
 
