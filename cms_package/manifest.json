@@ -8,13 +8,13 @@
     },
     {
       "path": "/story",
-      "file": "pages/story.html",
+      "file": "templates/story.html",
       "title": "Story",
       "editable": true
     },
     {
       "path": "/contact",
-      "file": "pages/contact.html",
+      "file": "templates/contact.html",
       "title": "Contact",
       "editable": true
     }
