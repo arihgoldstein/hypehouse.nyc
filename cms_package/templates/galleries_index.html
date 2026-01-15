@@ -4,118 +4,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery | Hye House</title>
-  <meta name="description" content="Moments captured. Browse photo albums from Hye House events.">
+  <meta name="description" content="Photo galleries from Hye House events. Browse moments from our community gatherings.">
   <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="/" class="logo">Hye House</a>
-      <nav class="nav">
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo">Hye House</a>
+      <nav class="site-nav">
+        <a href="/gallery" class="active">Gallery</a>
         <a href="/events">Events</a>
-        <a href="/videos">Videos</a>
-        <a href="/gallery">Gallery</a>
-        <a href="/merch">Merch</a>
-        <a href="/story">Story</a>
-        <a href="/contact">Contact</a>
+        <a href="/merch">Shop</a>
+        <a href="/story">Info</a>
       </nav>
-      <button class="menu-toggle">Menu</button>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <a href="/events">Events</a>
-    <a href="/videos">Videos</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/merch">Merch</a>
-    <a href="/story">Story</a>
-    <a href="/contact">Contact</a>
-  </div>
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <a href="/gallery">Gallery</a>
+      <a href="/events">Events</a>
+      <a href="/videos">Videos</a>
+      <a href="/merch">Shop</a>
+      <a href="/story">Info</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
 
   <!-- Page Header -->
-  <div class="page-header">
-    <h1 class="page-title" data-edit-key="gallery-page-title">Gallery</h1>
-    <p class="page-subtitle" data-edit-key="gallery-page-subtitle">Moments captured from our events</p>
-  </div>
-
-  <!-- Albums Grid -->
-  <section class="albums-section">
-    <div class="albums-grid">
-      {{#each galleries sort="event_date" order="desc"}}
-      <a href="{{url}}" class="album-card">
-        <div class="album-cover">
-          {{#if cover_image}}
-          <img src="{{cover_image}}" alt="{{name}}" loading="lazy">
-          {{else}}
-          <div class="album-placeholder">
-            <span>HYE HOUSE</span>
-          </div>
-          {{/if}}
-          <div class="album-overlay">
-            <div class="album-view-btn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7"/>
-                <rect x="14" y="3" width="7" height="7"/>
-                <rect x="14" y="14" width="7" height="7"/>
-                <rect x="3" y="14" width="7" height="7"/>
-              </svg>
-              <span>View Album</span>
-            </div>
-          </div>
-          {{#if photo_count}}
-          <span class="album-count">{{photo_count}} Photos</span>
-          {{/if}}
-        </div>
-        <div class="album-info">
-          <h2 class="album-title">{{name}}</h2>
-          <div class="album-meta">
-            {{#if event_date}}<span class="album-date">{{event_date}}</span>{{/if}}
-            {{#if location}}<span class="album-location">{{location}}</span>{{/if}}
-          </div>
-        </div>
-      </a>
-      {{/each}}
-    </div>
+  <section class="page-header">
+    <h1 class="page-title">Gallery</h1>
+    <p class="page-subtitle">Moments captured from our events and community gatherings.</p>
   </section>
 
-  {{#unless galleries}}
-  <div class="empty-state">
-    <p>No galleries yet. Check back after our next event!</p>
+  <!-- Gallery Grid -->
+  <div class="gallery-grid">
+    {{#each galleries sort="event_date" order="desc"}}
+    <a href="{{url}}" class="gallery-card">
+      <div class="gallery-cover">
+        {{#if cover_image}}
+        <img src="{{cover_image}}" alt="{{name}}" loading="lazy">
+        {{else}}
+        <div class="exhibit-placeholder"></div>
+        {{/if}}
+      </div>
+      <div class="gallery-info">
+        <h2 class="gallery-name">{{name}}</h2>
+        <span class="gallery-count">{{photo_count}} photos</span>
+      </div>
+    </a>
+    {{/each}}
   </div>
-  {{/unless}}
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Connect</h3>
-        <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
-        <a href="mailto:hello@hyehouse.nyc">Email</a>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">Hye House</a>
+        <p class="footer-tagline">Celebrating Armenian Creative Culture</p>
       </div>
-      <div class="footer-col">
-        <h3>Navigate</h3>
-        <a href="/events">Upcoming Events</a>
-        <a href="/videos">Watch Videos</a>
-        <a href="/gallery">Photo Gallery</a>
-        <a href="/merch">Shop Merch</a>
-        <a href="/story">Our Story</a>
+      <div class="footer-links">
+        <a href="/events">Events</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/videos">Videos</a>
+        <a href="/merch">Shop</a>
+        <a href="/story">Info</a>
+        <a href="/contact">Contact</a>
       </div>
-      <div class="footer-col" style="grid-column: span 1;">
-        <h3>Join the List</h3>
-        <p>Be the first to know about secret locations, ticket drops, and limited merch releases.</p>
-        <form class="footer-form" data-form-name="newsletter" data-success-message="Welcome to the list!">
-          <input type="email" name="email" placeholder="YOUR EMAIL" required>
-          <button type="submit">Submit</button>
-        </form>
+      <div class="footer-social">
+        <p class="social-label">Follow us:</p>
+        <div class="social-links">
+          <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
+          <a href="mailto:hello@hyehouse.nyc">Email</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Hye House</span>
-      <span class="md-hidden">Brooklyn / Los Angeles / Yerevan</span>
-      <span>Site by Ari</span>
+      <span>©Hye House 2026</span>
     </div>
   </footer>
 

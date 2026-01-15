@@ -3,94 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Story | Hye House</title>
-  <meta name="description" content="The story behind Hye House - an Armenian-led creative community bridging heritage with the underground.">
+  <title>Info | Hye House</title>
+  <meta name="description" content="The story of Hye House. An Armenian-led creative community bridging heritage with the underground.">
   <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="/" class="logo">Hye House</a>
-      <nav class="nav">
-        <a href="/events">Events</a>
-        <a href="/videos">Videos</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo">Hye House</a>
+      <nav class="site-nav">
         <a href="/gallery">Gallery</a>
-        <a href="/merch">Merch</a>
-        <a href="/story">Story</a>
-        <a href="/contact">Contact</a>
+        <a href="/events">Events</a>
+        <a href="/merch">Shop</a>
+        <a href="/story" class="active">Info</a>
       </nav>
-      <button class="menu-toggle">Menu</button>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <a href="/events">Events</a>
-    <a href="/videos">Videos</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/merch">Merch</a>
-    <a href="/story">Story</a>
-    <a href="/contact">Contact</a>
-  </div>
-
-  <!-- Page Header -->
-  <div class="page-header">
-    <h1 class="page-title" data-edit-key="story-page-title">Story</h1>
-  </div>
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <a href="/gallery">Gallery</a>
+      <a href="/events">Events</a>
+      <a href="/videos">Videos</a>
+      <a href="/merch">Shop</a>
+      <a href="/story">Info</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
 
   <!-- Story Content -->
   <div class="story-content">
-    <div class="story-headline" data-edit-key="story-headline">
-      Hye House is an Armenian-led creative community bridging heritage with the underground.
-    </div>
+    <p class="story-intro" data-edit-key="story-intro">
+      "Hye" — Armenian for Armenian
+    </p>
     
-    <div class="story-body">
-      <p data-edit-key="story-paragraph-1">
-        Born from a desire to see our culture represented in the spaces we frequent, Hye House began as a series of intimate gatherings in Brooklyn. It has since evolved into a global movement, connecting the Armenian diaspora through sound, design, and shared experience.
+    <div class="story-body" data-edit-key="story-body">
+      <p>
+        Hye House is an Armenian-led creative community and event series. Born out of a desire to see our culture represented in the spaces we frequent, we bridge heritage with the underground through sound, design, and shared experience.
       </p>
-      <p data-edit-key="story-paragraph-2">
-        We are DJs, designers, artists, and curators. We are not just preserving culture—we are evolving it. Our events are safe spaces for expression, experimentation, and joy.
+      
+      <p>
+        We host DJ nights, cultural gatherings, and creative experiences that bring together the Armenian diaspora and our broader creative community. From warehouse parties in Brooklyn to intimate gatherings in Los Angeles, we create spaces where culture meets the dance floor.
       </p>
-      <p data-edit-key="story-paragraph-3">
-        From warehouse raves in New York to rooftop sessions in Yerevan, Hye House is wherever we are. We operate at the intersection of tradition and futurism, creating environments where the ancient soul meets the modern pulse.
+
+      <h2>What We Do</h2>
+      
+      <p>
+        We curate events that feel like home—where the music speaks to something deeper, where the crowd is family, and where Armenian identity intersects with global creative culture. Our programming spans electronic music, art installations, and community building.
       </p>
-      <p data-edit-key="story-paragraph-4">
-        Our mission is simple: To build the house we want to live in. A house built on rhythm, respect, and radical creativity.
+
+      <h2>Based In</h2>
+      
+      <p>
+        Brooklyn, NY<br>
+        Los Angeles, CA<br>
+        Yerevan, AM
+      </p>
+
+      <h2>Get Involved</h2>
+      
+      <p>
+        Whether you're a DJ, artist, designer, or just someone who wants to connect with the community, we'd love to hear from you. <a href="/contact" style="text-decoration: underline;">Reach out</a> to collaborate or join the list for event updates.
       </p>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Connect</h3>
-        <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
-        <a href="mailto:hello@hyehouse.nyc">Email</a>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">Hye House</a>
+        <p class="footer-tagline">Celebrating Armenian Creative Culture</p>
       </div>
-      <div class="footer-col">
-        <h3>Navigate</h3>
-        <a href="/events">Upcoming Events</a>
-        <a href="/videos">Watch Videos</a>
-        <a href="/gallery">Photo Gallery</a>
-        <a href="/merch">Shop Merch</a>
-        <a href="/story">Our Story</a>
+      <div class="footer-links">
+        <a href="/events">Events</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/videos">Videos</a>
+        <a href="/merch">Shop</a>
+        <a href="/story">Info</a>
+        <a href="/contact">Contact</a>
       </div>
-      <div class="footer-col" style="grid-column: span 1;">
-        <h3>Join the List</h3>
-        <p>Be the first to know about secret locations, ticket drops, and limited merch releases.</p>
-        <form class="footer-form" data-form-name="newsletter" data-success-message="Welcome to the list!">
-          <input type="email" name="email" placeholder="YOUR EMAIL" required>
-          <button type="submit">Submit</button>
-        </form>
+      <div class="footer-social">
+        <p class="social-label">Follow us:</p>
+        <div class="social-links">
+          <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
+          <a href="mailto:hello@hyehouse.nyc">Email</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Hye House</span>
-      <span class="md-hidden">Brooklyn / Los Angeles / Yerevan</span>
-      <span>Site by Ari</span>
+      <span>©Hye House 2026</span>
     </div>
   </footer>
 

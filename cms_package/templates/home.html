@@ -4,159 +4,183 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hye House | Armenian Creative Community</title>
-  <meta name="description" content="Where culture meets the dance floor. An Armenian-led creative community and event series.">
+  <meta name="description" content="Celebrating Armenian creative culture. Events, gallery, and community.">
   <link rel="stylesheet" href="/public/css/style.css">
 </head>
-<body>
+<body class="home-page">
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="/" class="logo">Hye House</a>
-      <nav class="nav">
-        <a href="/events">Events</a>
-        <a href="/videos">Videos</a>
+  <!-- Minimal Header -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo">Hye House</a>
+      <nav class="site-nav">
         <a href="/gallery">Gallery</a>
-        <a href="/merch">Merch</a>
-        <a href="/story">Story</a>
-        <a href="/contact">Contact</a>
+        <a href="/events">Events</a>
+        <a href="/merch">Shop</a>
+        <a href="/story">Info</a>
       </nav>
-      <button class="menu-toggle">Menu</button>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <a href="/events">Events</a>
-    <a href="/videos">Videos</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/merch">Merch</a>
-    <a href="/story">Story</a>
-    <a href="/contact">Contact</a>
-  </div>
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <a href="/gallery">Gallery</a>
+      <a href="/events">Events</a>
+      <a href="/videos">Videos</a>
+      <a href="/merch">Shop</a>
+      <a href="/story">Info</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1 class="hero-title" data-edit-key="hero-title">
-      Culture Meets <br><span>The Dance Floor</span>
-    </h1>
-    <div class="hero-content">
-      <p class="hero-description" data-edit-key="hero-description">
-        Hye House is an Armenian-led creative community and event series bridging heritage with the underground.
-      </p>
-      <div class="hero-cta">
-        <a href="/events" class="btn btn-primary">Upcoming Events</a>
-        <a href="/merch" class="btn btn-outline">Shop Merch</a>
+  <!-- Hero Statement -->
+  <section class="hero-statement">
+    <h1 class="hero-tagline" data-edit-key="hero-tagline">Celebrating Armenian Creative Culture</h1>
+  </section>
+
+  <!-- Featured Event - Large Image Card -->
+  {{#each events limit=1 sort="date" order="asc"}}
+  <section class="featured-exhibit">
+    <a href="{{url}}" class="exhibit-card exhibit-card-hero">
+      <div class="exhibit-image">
+        {{#if image}}
+        <img src="{{image}}" alt="{{name}}" loading="lazy">
+        {{else}}
+        <div class="exhibit-placeholder"></div>
+        {{/if}}
       </div>
-    </div>
+      <div class="exhibit-info">
+        <span class="exhibit-label">Next Event</span>
+        <h2 class="exhibit-title">{{name}}</h2>
+        <span class="exhibit-date">{{date}}</span>
+      </div>
+    </a>
   </section>
+  {{/each}}
 
-  <!-- Events Section -->
-  <section class="events-section">
-    <div class="section-header">
-      <h2 class="section-title" data-edit-key="events-section-title">Upcoming Events</h2>
-      <a href="/events" class="section-link md-hidden">View All</a>
-    </div>
-    
-    <div class="events-grid">
-      {{#each events limit=2 sort="date" order="asc"}}
-      <article class="event-card" style="position: relative; overflow: hidden; display: flex; flex-direction: column;">
-        <!-- Event background image -->
-        <div style="position: absolute; inset: 0; z-index: 0;">
-          <img src="{{image}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;" onerror="this.parentElement.style.background='linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)';this.style.display='none'">
-          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);"></div>
+  <!-- Past Events Grid -->
+  <section class="exhibits-grid-section">
+    <div class="exhibits-grid">
+      {{#each events skip=1 limit=4 sort="date" order="desc"}}
+      <a href="{{url}}" class="exhibit-card">
+        <div class="exhibit-image">
+          {{#if image}}
+          <img src="{{image}}" alt="{{name}}" loading="lazy">
+          {{else}}
+          <div class="exhibit-placeholder"></div>
+          {{/if}}
         </div>
-        <div style="position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
-          <div class="event-meta">
-            <span class="event-status">Upcoming</span>
-            <span class="event-date">{{date}}</span>
-          </div>
-          <div>
-            <div class="event-info">
-              <h3 class="event-title">{{name}}</h3>
-            </div>
-            <div class="event-cta">
-              <a href="{{url}}" class="btn btn-primary">Get Tickets</a>
-            </div>
-          </div>
-        </div>
-      </article>
-      {{/each}}
-    </div>
-    
-    <div class="md-show" style="margin-top: 2rem; display: none;">
-      <a href="/events" class="section-link" style="display: block; text-align: center; padding: 1rem; border: 1px solid rgba(255,255,255,0.2);">View All Events</a>
-    </div>
-  </section>
-
-  <!-- Statement -->
-  <section class="statement">
-    <p class="statement-text" data-edit-key="home-statement">
-      We do not view ourselves as just party promoters. <br>
-      <span>We are a living platform for experimentation, connecting the diaspora through sound, design, and shared space.</span>
-    </p>
-  </section>
-
-  <!-- Merch Section -->
-  <section class="merch-section">
-    <div class="section-header">
-      <h2 class="section-title" data-edit-key="merch-section-title">Shop Merch</h2>
-      <a href="/merch" class="section-link md-hidden">View All</a>
-    </div>
-    
-    <div class="merch-grid">
-      {{#each merch limit=3 sort="publishedAt" order="desc"}}
-      <a href="{{url}}" class="merch-card">
-        <div class="merch-image">
-          <div class="merch-image-inner">
-            {{#if merch}}
-            <img src="{{merch}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-            {{/if}}
-          </div>
-          <span class="merch-placeholder">{{name}}</span>
-        </div>
-        <div class="merch-details">
-          <h3 class="merch-name">{{name}}</h3>
-          <span class="merch-price">${{price}}</span>
+        <div class="exhibit-info">
+          <h3 class="exhibit-title-sm">{{name}}</h3>
+          <span class="exhibit-date">{{date}}</span>
         </div>
       </a>
       {{/each}}
     </div>
-    
-    <div class="md-show" style="margin-top: 2rem; display: none;">
-      <a href="/merch" class="section-link" style="display: block; text-align: center; padding: 1rem; border: 1px solid rgba(255,255,255,0.2);">View Shop</a>
+    <div class="section-cta">
+      <a href="/events" class="text-link">View All Events →</a>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="gallery-preview">
+    <a href="/gallery" class="gallery-preview-link">
+      <div class="gallery-preview-content">
+        <span class="preview-label">Photo Gallery</span>
+        <h2 class="preview-title" data-edit-key="gallery-preview-title">View the Moments</h2>
+        <span class="preview-cta">Browse Photos →</span>
+      </div>
+      <div class="gallery-preview-images">
+        {{#each galleries limit=1}}
+        {{#if cover_image}}
+        <img src="{{cover_image}}" alt="{{name}}" class="preview-img preview-img-1">
+        {{/if}}
+        {{/each}}
+      </div>
+    </a>
+  </section>
+
+  <!-- Shop Section -->
+  <section class="shop-section">
+    <div class="shop-header">
+      <h2 class="shop-title">Shop</h2>
+      <a href="/merch" class="text-link">View All →</a>
+    </div>
+    <div class="products-grid">
+      {{#each merch limit=4 sort="publishedAt" order="desc"}}
+      <a href="{{url}}" class="product-card">
+        <div class="product-image">
+          {{#if merch}}
+          <img src="{{merch}}" alt="{{name}}" loading="lazy">
+          {{else}}
+          <div class="product-placeholder">{{name}}</div>
+          {{/if}}
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">{{name}}</h3>
+          <span class="product-price">${{price}}</span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+  </section>
+
+  <!-- About Block -->
+  <section class="about-block">
+    <div class="about-content">
+      <p class="about-intro" data-edit-key="about-intro">"Hye" — Armenian for Armenian</p>
+      <p class="about-text" data-edit-key="about-text">
+        Hye House is an Armenian-led creative community and event series. Born out of a desire to see our culture represented in the spaces we frequent, we bridge heritage with the underground through sound, design, and shared experience. We host events, curate experiences, and build community across Brooklyn, Los Angeles, and Yerevan.
+      </p>
+      <a href="/story" class="text-link">Learn More →</a>
+    </div>
+    <div class="about-location">
+      <p class="location-label">Based in</p>
+      <p class="location-cities" data-edit-key="location-cities">Brooklyn, NY<br>Los Angeles, CA<br>Yerevan, AM</p>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="newsletter-content">
+      <p class="newsletter-text" data-edit-key="newsletter-text">Subscribe to our newsletter:</p>
+      <form class="newsletter-form" data-form-name="newsletter" data-success-message="Welcome to the list!">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Connect</h3>
-        <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
-        <a href="mailto:hello@hyehouse.nyc">Email</a>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">Hye House</a>
+        <p class="footer-tagline">Celebrating Armenian Creative Culture</p>
       </div>
-      <div class="footer-col">
-        <h3>Navigate</h3>
-        <a href="/events">Upcoming Events</a>
-        <a href="/videos">Watch Videos</a>
-        <a href="/gallery">Photo Gallery</a>
-        <a href="/merch">Shop Merch</a>
-        <a href="/story">Our Story</a>
+      <div class="footer-links">
+        <a href="/events">Events</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/videos">Videos</a>
+        <a href="/merch">Shop</a>
+        <a href="/story">Info</a>
+        <a href="/contact">Contact</a>
       </div>
-      <div class="footer-col" style="grid-column: span 1;">
-        <h3>Join the List</h3>
-        <p data-edit-key="footer-newsletter-text">Be the first to know about secret locations, ticket drops, and limited merch releases.</p>
-        <form class="footer-form" data-form-name="newsletter" data-success-message="Welcome to the list!">
-          <input type="email" name="email" placeholder="YOUR EMAIL" required>
-          <button type="submit">Submit</button>
-        </form>
+      <div class="footer-social">
+        <p class="social-label">Follow us:</p>
+        <div class="social-links">
+          <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
+          <a href="mailto:hello@hyehouse.nyc">Email</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Hye House</span>
-      <span class="md-hidden">Brooklyn / Los Angeles / Yerevan</span>
-      <span data-edit-key="footer-credit">Site by Ari</span>
+      <span>©Hye House 2026</span>
     </div>
   </footer>
 

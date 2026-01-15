@@ -4,97 +4,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop | Hye House</title>
-  <meta name="description" content="Official Hye House merchandise. Apparel, accessories, and limited drops.">
+  <meta name="description" content="Shop Hye House merchandise. Apparel, stickers, and limited drops.">
   <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="/" class="logo">Hye House</a>
-      <nav class="nav">
-        <a href="/events">Events</a>
-        <a href="/videos">Videos</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo">Hye House</a>
+      <nav class="site-nav">
         <a href="/gallery">Gallery</a>
-        <a href="/merch">Merch</a>
-        <a href="/story">Story</a>
-        <a href="/contact">Contact</a>
+        <a href="/events">Events</a>
+        <a href="/merch" class="active">Shop</a>
+        <a href="/story">Info</a>
       </nav>
-      <button class="menu-toggle">Menu</button>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <a href="/events">Events</a>
-    <a href="/videos">Videos</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/merch">Merch</a>
-    <a href="/story">Story</a>
-    <a href="/contact">Contact</a>
-  </div>
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <a href="/gallery">Gallery</a>
+      <a href="/events">Events</a>
+      <a href="/videos">Videos</a>
+      <a href="/merch">Shop</a>
+      <a href="/story">Info</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
 
   <!-- Page Header -->
-  <div class="page-header">
+  <section class="page-header">
     <h1 class="page-title">Shop</h1>
-  </div>
+    <p class="page-subtitle">Apparel, stickers, and limited drops.</p>
+  </section>
 
-  <!-- Merch Grid -->
+  <!-- Products Grid -->
   <div class="merch-page-grid">
     {{#each merch sort="publishedAt" order="desc"}}
-    <a href="{{url}}" class="merch-page-card">
-      <div class="merch-page-image">
-        <div class="merch-page-image-inner">
-          {{#if merch}}
-          <img src="{{merch}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-          {{/if}}
-        </div>
-        <span class="merch-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.2);font-weight:700;">{{name}}</span>
+    <a href="{{url}}" class="product-card">
+      <div class="product-image">
+        {{#if merch}}
+        <img src="{{merch}}" alt="{{name}}" loading="lazy">
+        {{else}}
+        <div class="product-placeholder">{{name}}</div>
+        {{/if}}
       </div>
-      <div class="merch-page-details">
-        <h3 class="merch-page-name">{{name}}</h3>
-        <span class="merch-page-price">${{price}}</span>
+      <div class="product-info">
+        <h2 class="product-name">{{name}}</h2>
+        <span class="product-price">${{price}}</span>
       </div>
     </a>
     {{/each}}
   </div>
 
-  {{#unless merch}}
-  <div style="padding: 5rem 2rem; text-align: center;">
-    <p style="color: #9C9C9C; text-transform: uppercase; letter-spacing: 0.1em;">No products yet. Check back soon!</p>
-  </div>
-  {{/unless}}
-
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Connect</h3>
-        <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
-        <a href="mailto:hello@hyehouse.nyc">Email</a>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">Hye House</a>
+        <p class="footer-tagline">Celebrating Armenian Creative Culture</p>
       </div>
-      <div class="footer-col">
-        <h3>Navigate</h3>
-        <a href="/events">Upcoming Events</a>
-        <a href="/videos">Watch Videos</a>
-        <a href="/gallery">Photo Gallery</a>
-        <a href="/merch">Shop Merch</a>
-        <a href="/story">Our Story</a>
+      <div class="footer-links">
+        <a href="/events">Events</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/videos">Videos</a>
+        <a href="/merch">Shop</a>
+        <a href="/story">Info</a>
+        <a href="/contact">Contact</a>
       </div>
-      <div class="footer-col" style="grid-column: span 1;">
-        <h3>Join the List</h3>
-        <p>Be the first to know about secret locations, ticket drops, and limited merch releases.</p>
-        <form class="footer-form" data-form-name="newsletter" data-success-message="Welcome to the list!">
-          <input type="email" name="email" placeholder="YOUR EMAIL" required>
-          <button type="submit">Submit</button>
-        </form>
+      <div class="footer-social">
+        <p class="social-label">Follow us:</p>
+        <div class="social-links">
+          <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
+          <a href="mailto:hello@hyehouse.nyc">Email</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Hye House</span>
-      <span class="md-hidden">Brooklyn / Los Angeles / Yerevan</span>
-      <span>Site by Ari</span>
+      <span>©Hye House 2026</span>
     </div>
   </footer>
 

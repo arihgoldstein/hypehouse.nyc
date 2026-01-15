@@ -4,167 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Videos | Hye House</title>
-  <meta name="description" content="Watch the movement. Event recaps, behind the scenes, performances, and community moments from Hye House.">
+  <meta name="description" content="Watch videos from Hye House. Event recaps, DJ sets, and community moments.">
   <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="/" class="logo">Hye House</a>
-      <nav class="nav">
-        <a href="/events">Events</a>
-        <a href="/videos">Videos</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo">Hye House</a>
+      <nav class="site-nav">
         <a href="/gallery">Gallery</a>
-        <a href="/merch">Merch</a>
-        <a href="/story">Story</a>
-        <a href="/contact">Contact</a>
+        <a href="/events">Events</a>
+        <a href="/merch">Shop</a>
+        <a href="/story">Info</a>
       </nav>
-      <button class="menu-toggle">Menu</button>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <a href="/events">Events</a>
-    <a href="/videos">Videos</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/merch">Merch</a>
-    <a href="/story">Story</a>
-    <a href="/contact">Contact</a>
-  </div>
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <a href="/gallery">Gallery</a>
+      <a href="/events">Events</a>
+      <a href="/videos">Videos</a>
+      <a href="/merch">Shop</a>
+      <a href="/story">Info</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
 
   <!-- Page Header -->
-  <div class="page-header">
-    <h1 class="page-title" data-edit-key="videos-page-title">Watch</h1>
-    <p class="page-subtitle" data-edit-key="videos-page-subtitle">Event recaps, performances, and community moments</p>
-  </div>
+  <section class="page-header">
+    <h1 class="page-title">Videos</h1>
+    <p class="page-subtitle">Event recaps, DJ sets, and community moments.</p>
+  </section>
 
-  <!-- Featured Video -->
-  {{#each videos featured=true limit=1}}
-  <section class="video-featured">
-    <a href="{{url}}" class="video-featured-card">
-      <div class="video-featured-media">
-        <div class="video-featured-thumbnail">
-          {{#if thumbnail}}
-          <img src="{{thumbnail}}" alt="{{name}}">
-          {{else}}
-          <div class="video-placeholder-bg"></div>
-          {{/if}}
-          <div class="video-featured-overlay"></div>
-        </div>
-        <div class="video-play-icon video-play-icon-xl">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="5 3 19 12 5 21 5 3"/>
+  <!-- Videos Grid -->
+  <div class="video-grid">
+    {{#each videos sort="publishedAt" order="desc"}}
+    <a href="{{url}}" class="video-card">
+      <div class="video-thumbnail">
+        {{#if thumbnail}}
+        <img src="{{thumbnail}}" alt="{{name}}" loading="lazy">
+        {{else}}
+        <div class="exhibit-placeholder"></div>
+        {{/if}}
+        <div class="video-play-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5V19L19 12L8 5Z" fill="#000"/>
           </svg>
         </div>
-        {{#if duration}}
-        <span class="video-duration video-duration-lg">{{duration}}</span>
-        {{/if}}
       </div>
-      <div class="video-featured-content">
-        <div class="video-featured-meta">
-          <span class="video-badge">Featured</span>
-          {{#if category}}
-          <span class="video-category">{{category}}</span>
-          {{/if}}
-        </div>
-        <h2 class="video-featured-title">{{name}}</h2>
-        {{#if description}}
-        <div class="video-featured-description">{{{description}}}</div>
+      <div class="video-info">
+        <h2 class="video-title">{{name}}</h2>
+        {{#if duration}}
+        <span class="video-meta">{{duration}}</span>
         {{/if}}
-        <span class="video-watch-cta">
-          Watch Now
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </span>
       </div>
     </a>
-  </section>
-  {{/each}}
-
-  <!-- All Videos Grid -->
-  <section class="videos-section">
-    <div class="section-header-bar">
-      <h2 class="section-label" data-edit-key="videos-grid-title">All Videos</h2>
-      <span class="section-count">{{#each videos}}{{@index}}{{/each}} Videos</span>
-    </div>
-    
-    <div class="videos-grid">
-      {{#each videos sort="publishedAt" order="desc"}}
-      <a href="{{url}}" class="video-card">
-        <div class="video-card-media">
-          <div class="video-card-thumbnail">
-            {{#if thumbnail}}
-            <img src="{{thumbnail}}" alt="{{name}}" onerror="this.style.display='none'">
-            {{/if}}
-            <div class="video-placeholder-bg"></div>
-          </div>
-          <div class="video-card-overlay"></div>
-          <div class="video-play-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
-          </div>
-          {{#if duration}}
-          <span class="video-duration">{{duration}}</span>
-          {{/if}}
-          {{#if category}}
-          <span class="video-category-badge">{{category}}</span>
-          {{/if}}
-        </div>
-        <div class="video-card-content">
-          <h3 class="video-card-title">{{name}}</h3>
-          <span class="video-card-date">{{publishedAt}}</span>
-        </div>
-      </a>
-      {{/each}}
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="video-cta-section">
-    <div class="video-cta-content">
-      <h2 class="video-cta-title" data-edit-key="videos-cta-title">Want to be part of the next one?</h2>
-      <p class="video-cta-text" data-edit-key="videos-cta-text">Join our community and never miss an event.</p>
-      <div class="video-cta-buttons">
-        <a href="/events" class="btn btn-primary">Upcoming Events</a>
-        <a href="/contact" class="btn btn-outline">Get in Touch</a>
-      </div>
-    </div>
-  </section>
+    {{/each}}
+  </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Connect</h3>
-        <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
-        <a href="mailto:hello@hyehouse.nyc">Email</a>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">Hye House</a>
+        <p class="footer-tagline">Celebrating Armenian Creative Culture</p>
       </div>
-      <div class="footer-col">
-        <h3>Navigate</h3>
-        <a href="/events">Upcoming Events</a>
-        <a href="/videos">Watch Videos</a>
-        <a href="/gallery">Photo Gallery</a>
-        <a href="/merch">Shop Merch</a>
-        <a href="/story">Our Story</a>
+      <div class="footer-links">
+        <a href="/events">Events</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/videos">Videos</a>
+        <a href="/merch">Shop</a>
+        <a href="/story">Info</a>
+        <a href="/contact">Contact</a>
       </div>
-      <div class="footer-col" style="grid-column: span 1;">
-        <h3>Join the List</h3>
-        <p>Be the first to know about secret locations, ticket drops, and limited merch releases.</p>
-        <form class="footer-form" data-form-name="newsletter" data-success-message="Welcome to the list!">
-          <input type="email" name="email" placeholder="YOUR EMAIL" required>
-          <button type="submit">Submit</button>
-        </form>
+      <div class="footer-social">
+        <p class="social-label">Follow us:</p>
+        <div class="social-links">
+          <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
+          <a href="mailto:hello@hyehouse.nyc">Email</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Hye House</span>
-      <span class="md-hidden">Brooklyn / Los Angeles / Yerevan</span>
-      <span>Site by Ari</span>
+      <span>©Hye House 2026</span>
     </div>
   </footer>
 

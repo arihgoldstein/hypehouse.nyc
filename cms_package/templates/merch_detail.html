@@ -3,122 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{name}} | Hye House Shop</title>
-  <meta name="description" content="{{name}} - Official Hye House merchandise">
+  <title>{{name}} | Shop | Hye House</title>
+  <meta name="description" content="{{name}} - Hye House merchandise">
   <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="/" class="logo">Hye House</a>
-      <nav class="nav">
-        <a href="/events">Events</a>
-        <a href="/videos">Videos</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="/" class="site-logo">Hye House</a>
+      <nav class="site-nav">
         <a href="/gallery">Gallery</a>
-        <a href="/merch">Merch</a>
-        <a href="/story">Story</a>
-        <a href="/contact">Contact</a>
+        <a href="/events">Events</a>
+        <a href="/merch" class="active">Shop</a>
+        <a href="/story">Info</a>
       </nav>
-      <button class="menu-toggle">Menu</button>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <a href="/events">Events</a>
-    <a href="/videos">Videos</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/merch">Merch</a>
-    <a href="/story">Story</a>
-    <a href="/contact">Contact</a>
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner">
+      <a href="/gallery">Gallery</a>
+      <a href="/events">Events</a>
+      <a href="/videos">Videos</a>
+      <a href="/merch">Shop</a>
+      <a href="/story">Info</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Product Content -->
+  <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-xl); padding: var(--space-xl) var(--container-padding); max-width: 1200px; margin: 0 auto;">
+    
+    <!-- Product Image -->
+    <div style="aspect-ratio: 1; background: var(--color-bg-elevated); overflow: hidden;">
+      {{#if merch}}
+      <img src="{{merch}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover;">
+      {{else}}
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted);">{{name}}</div>
+      {{/if}}
+    </div>
+
+    <!-- Product Info -->
+    <div>
+      <p style="margin-bottom: 1rem;">
+        <a href="/merch" style="color: var(--color-text-muted); font-size: 0.875rem;">← Back to Shop</a>
+      </p>
+      
+      <h1 style="font-size: 2rem; font-weight: 400; margin-bottom: var(--space-sm);">{{name}}</h1>
+      <p style="font-size: 1.25rem; color: var(--color-text-secondary); margin-bottom: var(--space-lg);">${{price}}</p>
+      
+      {{#if description}}
+      <div style="color: var(--color-text-secondary); line-height: 1.7; margin-bottom: var(--space-lg);">
+        {{{description}}}
+      </div>
+      {{/if}}
+
+      {{#if buy_url}}
+      <a href="{{buy_url}}" class="btn btn-primary" target="_blank">Buy Now</a>
+      {{/if}}
+    </div>
   </div>
 
-  <!-- Product Detail -->
-  <article style="padding: 8rem 1rem 5rem;">
-    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto;">
-      
-      <!-- Product Image -->
-      <div style="aspect-ratio: 1; background: #111; position: relative; overflow: hidden;">
-        {{#if merch}}
-        <img src="{{merch}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover;">
-        {{else}}
-        <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.2);font-weight:700;">Product Image</span>
-        {{/if}}
-      </div>
-      
-      <!-- Product Info -->
-      <div>
-        <h1 style="font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 1rem;">{{name}}</h1>
-        
-        <p style="font-size: 1.5rem; font-family: monospace; color: #9C9C9C; margin-bottom: 2rem;">${{price}}</p>
-        
-        {{#if decription}}
-        <div style="font-size: 1.125rem; line-height: 1.8; color: #9C9C9C; margin-bottom: 3rem;">
-          {{{decription}}}
-        </div>
-        {{/if}}
-        
-        <a href="/contact" class="btn btn-primary" style="font-size: 1rem; padding: 1rem 2rem;">Inquire to Purchase</a>
-      </div>
-    </div>
-  </article>
-
   <!-- More Products -->
-  <section class="archive-section" style="border-top: 1px solid rgba(255,255,255,0.1);">
-    <h2 class="archive-title">More Products</h2>
-    
-    <div class="merch-page-grid" style="padding: 0;">
-      {{#each merch limit=3}}
-      {{#unless (eq slug ../slug)}}
-      <a href="{{url}}" class="merch-page-card">
-        <div class="merch-page-image">
-          <div class="merch-page-image-inner">
-            {{#if merch}}
-            <img src="{{merch}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-            {{/if}}
-          </div>
+  <section style="border-top: 1px solid var(--color-border); padding: var(--space-xl) var(--container-padding);">
+    <h2 style="font-size: 1.25rem; font-weight: 400; margin-bottom: var(--space-lg);">More Products</h2>
+    <div class="products-grid" style="max-width: 1200px;">
+      {{#each merch limit=4 sort="publishedAt" order="desc"}}
+      <a href="{{url}}" class="product-card">
+        <div class="product-image">
+          {{#if merch}}
+          <img src="{{merch}}" alt="{{name}}" loading="lazy">
+          {{else}}
+          <div class="product-placeholder">{{name}}</div>
+          {{/if}}
         </div>
-        <div class="merch-page-details">
-          <h3 class="merch-page-name">{{name}}</h3>
-          <span class="merch-page-price">${{price}}</span>
+        <div class="product-info">
+          <h3 class="product-name">{{name}}</h3>
+          <span class="product-price">${{price}}</span>
         </div>
       </a>
-      {{/unless}}
       {{/each}}
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>Connect</h3>
-        <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
-        <a href="mailto:hello@hyehouse.nyc">Email</a>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">Hye House</a>
+        <p class="footer-tagline">Celebrating Armenian Creative Culture</p>
       </div>
-      <div class="footer-col">
-        <h3>Navigate</h3>
-        <a href="/events">Upcoming Events</a>
-        <a href="/videos">Watch Videos</a>
-        <a href="/gallery">Photo Gallery</a>
-        <a href="/merch">Shop Merch</a>
-        <a href="/story">Our Story</a>
+      <div class="footer-links">
+        <a href="/events">Events</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/videos">Videos</a>
+        <a href="/merch">Shop</a>
+        <a href="/story">Info</a>
+        <a href="/contact">Contact</a>
       </div>
-      <div class="footer-col" style="grid-column: span 1;">
-        <h3>Join the List</h3>
-        <p>Be the first to know about secret locations, ticket drops, and limited merch releases.</p>
-        <form class="footer-form" data-form-name="newsletter" data-success-message="Welcome to the list!">
-          <input type="email" name="email" placeholder="YOUR EMAIL" required>
-          <button type="submit">Submit</button>
-        </form>
+      <div class="footer-social">
+        <p class="social-label">Follow us:</p>
+        <div class="social-links">
+          <a href="https://instagram.com/hyehouse" target="_blank">Instagram</a>
+          <a href="mailto:hello@hyehouse.nyc">Email</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Hye House</span>
-      <span class="md-hidden">Brooklyn / Los Angeles / Yerevan</span>
-      <span>Site by Ari</span>
+      <span>©Hye House 2026</span>
     </div>
   </footer>
 
